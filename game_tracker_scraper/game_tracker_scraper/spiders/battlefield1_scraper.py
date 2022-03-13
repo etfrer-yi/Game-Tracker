@@ -10,7 +10,7 @@ class Battlefield1Scraper(scrapy.Spider):
         urls = ["https://battlefieldtracker.com/bf1/leaderboards/all/SiteScore"]
         urls += [
             f"https://battlefieldtracker.com/bf1/leaderboards/all/SiteScore?page={page}"
-            for page in range(2, 5)
+            for page in range(2, 21)
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse_scoreboard)
@@ -20,8 +20,8 @@ class Battlefield1Scraper(scrapy.Spider):
             player_record_fields = player_record.css('td').getall()
             if len(player_record_fields) == 4:
                 player_info = {
-                    'Rank': self.convert_numerical_str_to_num(
-                        player_record.css('td::text').getall()[0].replace(",", "")),
+                    'Rank': int(self.convert_numerical_str_to_num(
+                        player_record.css('td::text').getall()[0].replace(",", ""))),
                     'Gamer': player_record.css('td')[1].css("a::text").get(),
                     'BTR Score': self.convert_numerical_str_to_num(
                         player_record.css('td')[2].css("div.pull-right::text").get()),
@@ -34,8 +34,8 @@ class Battlefield1Scraper(scrapy.Spider):
                                          meta={'player_info': player_info})
 
     def parse_player_profile(self, response):
-        if response.css(
-                ".alert"):  # sometimes the website has trouble downloading data due to exceeding INT_MAX, so an alert shows up
+        # sometimes the website has trouble downloading data due to exceeding INT_MAX, so an alert shows up
+        if response.css(".alert"):
             return
 
         relevant_stats = response.css("div.stats div.stat div.value::text").getall()
@@ -45,15 +45,22 @@ class Battlefield1Scraper(scrapy.Spider):
             'Gamer': player_info['Gamer'],
             'BTR Score': player_info['BTR Score'],
             'Games': player_info['Games'],
+
+            # relevant_stats[0] is the content of an a tag
             'Score/min': self.convert_numerical_str_to_num(relevant_stats[1]),
-            'Kill Ratio': self.convert_numerical_str_to_num(relevant_stats[2]),
-            'Win Percent': self.convert_numerical_str_to_num(relevant_stats[3]) / 100,
+            'Kill Ratio': self.convert_numerical_str_to_num(relevant_stats[2], False),
+            'Win Percent': self.convert_numerical_str_to_num(relevant_stats[3], False) / 100,
             'Game Score': self.convert_numerical_str_to_num(relevant_stats[4]),
             'Hours Played': self.get_hours_from_play_time(relevant_stats[5]),
         }
 
-    def convert_numerical_str_to_num(self, numerical_str):
-        return round(float(numerical_str.replace("\r\n", "").replace(",", "").replace("%", "").strip()), 3)
+    def convert_numerical_str_to_num(self, numerical_str, round_int=True):
+        processed_str = numerical_str.replace("\r\n", "").replace(",", "").replace("%", "").strip()
+        if round_int:
+            return round(int(processed_str))
+        else:
+            return round(float(processed_str), 3)
+
 
     def get_hours_from_play_time(self, play_time):
         play_time = play_time.split()

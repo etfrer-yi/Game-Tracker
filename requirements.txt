@@ -1,4 +1,6 @@
 Django
 python-dotenv
 Scrapy
-uuid
+pandas
+psycopg2
+sqlalchemy
