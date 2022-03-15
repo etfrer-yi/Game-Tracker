@@ -4,3 +4,4 @@ Scrapy
 pandas
 psycopg2
 sqlalchemy
+selenium
