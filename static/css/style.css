@@ -1,0 +1,7 @@
+body {
+    background-color: #eee
+}
+
+.nav-link:hover {
+    background-color: #525252 !important
+}
