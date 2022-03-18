@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Battlefield1Stats
 
@@ -6,3 +5,5 @@ from .models import Battlefield1Stats
 class Battlefield1View(ListView):
     model = Battlefield1Stats
     template_name = "battlefield1/battlefield1.html"
+    context_object_name = "player_records"
+    paginate_by = 20

@@ -1,7 +1,17 @@
-body {
-    background-color: #eee
-}
+
 
 .nav-link:hover {
-    background-color: #525252 !important
+    background-color: #525252;
+}
+
+table {
+    width: 100%;
+}
+
+thead, tbody { display: block; }
+
+tbody {
+    height: 90vh;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
 }

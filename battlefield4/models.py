@@ -9,7 +9,7 @@ from django.db import models
 
 
 class Battlefield1Stats(models.Model):
-    index = models.BigIntegerField(blank=True, null=True)
+    index = models.BigIntegerField(blank=True, primary_key=True)
     rank = models.BigIntegerField(db_column='Rank', blank=True, null=True)  # Field name made lowercase.
     gamer = models.TextField(db_column='Gamer', blank=True, null=True)  # Field name made lowercase.
     btr_score = models.BigIntegerField(db_column='BTR Score', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -26,7 +26,7 @@ class Battlefield1Stats(models.Model):
 
 
 class Battlefield4Stats(models.Model):
-    index = models.BigIntegerField(blank=True, null=True)
+    index = models.BigIntegerField(blank=True, primary_key=True)
     rank = models.BigIntegerField(db_column='Rank', blank=True, null=True)  # Field name made lowercase.
     gamer = models.TextField(db_column='Gamer', blank=True, null=True)  # Field name made lowercase.
     game_score = models.BigIntegerField(db_column='Game Score', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
