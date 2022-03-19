@@ -4,14 +4,20 @@
     background-color: #525252;
 }
 
-table {
-    width: 100%;
-}
-
 thead, tbody { display: block; }
 
 tbody {
     height: 90vh;       /* Just for the demo          */
     overflow-y: auto;    /* Trigger vertical scroll    */
     overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+.record-row td {
+    cursor: pointer;
+}
+
+table {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
 }

@@ -26,6 +26,9 @@
         <li><a href={% url "battlefield4" %} class="nav-link text-white
             {% if request.resolver_match.url_name == "battlefield4" %}active{% endif %}">
             <span class="ms-2">BF4 Stats</span> </a></li>
+        <li><a href={% url "battlefield_hardline" %} class="nav-link text-white
+            {% if request.resolver_match.url_name == "battlefield_hardline" %}active{% endif %}">
+            <span class="ms-2">BF Hardline Stats</span> </a></li>
         <li><a href="#" class="nav-link text-white"> <span class="ms-2">Data Analytics</span> </a></li>
     </ul>
     <hr>
@@ -37,16 +40,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
-<script>
-    $(document).ready(function () {
-    var height1 = $('.content').height()
-    var height2 = $('body').height()
-
-    if (height1 > height2) {
-        $('.sidebar').height(height1)
-    } else {
-        $('.sidebar').height(height2)
-    }});
-</script>
-</body>
+<script type="text/javascript" src="{% static "js/index.js" %}"></script></body>
 </html>

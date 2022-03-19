@@ -4,13 +4,13 @@ from .battlefield_scraper import BattlefieldScraper
 DOMAIN = "https://battlefieldtracker.com"
 
 
-class Battlefield4Scraper(BattlefieldScraper):
-    name = "battlefield4"
+class BattlefieldHardlineScraper(BattlefieldScraper):
+    name = "battlefield_hardline"
 
     def start_requests(self):
-        urls = ["https://battlefieldtracker.com/bf4/leaderboards/all"]
+        urls = ["https://battlefieldtracker.com/bfh/leaderboards/all"]
         urls += [
-            f"https://battlefieldtracker.com/bf4/leaderboards/all/score?page={page}"
+            f"https://battlefieldtracker.com/bfh/leaderboards/all/score?page={page}"
             for page in range(2, 21)
         ]
         for url in urls:
@@ -61,22 +61,24 @@ class Battlefield4Scraper(BattlefieldScraper):
                                                            .getall()[0]),
             'Hours Played': self.convert_numerical_str_to_num(relevant_stats[1][:-1]),
             'Kills': self.convert_numerical_str_to_num(response.xpath(f"{xpath_beginning}'Kills'{xpath_ending}")
-                                                           .getall()[0]),
+                                                       .getall()[0]),
             'Deaths': self.convert_numerical_str_to_num(response.xpath(f"{xpath_beginning}'Deaths'{xpath_ending}")
-                                                           .getall()[0]),
+                                                        .getall()[0]),
             'Wins': self.convert_numerical_str_to_num(response.xpath(f"{xpath_beginning}'Wins'{xpath_ending}")
-                                                           .getall()[0]),
+                                                      .getall()[0]),
             'Losses': self.convert_numerical_str_to_num(response.xpath(f"{xpath_beginning}'Losses'{xpath_ending}")
-                                                           .getall()[0]),
+                                                        .getall()[0]),
             'Accuracy': self.convert_numerical_str_to_num(response.xpath(f"{xpath_beginning}'Accuracy'{xpath_ending}")
-                                                           .getall()[0], False),
+                                                          .getall()[0], False),
             'Flags Captured': self.convert_numerical_str_to_num(
                 response.xpath(f"{xpath_beginning}'Flag Captures'{xpath_ending}")
-                .getall()[0]),
+                    .getall()[0]),
             'Flags Defended': self.convert_numerical_str_to_num(
                 response.xpath(f"{xpath_beginning}'Defended Flag'{xpath_ending}")
-                .getall()[0]),
+                    .getall()[0]),
             'Head Shots': self.convert_numerical_str_to_num(
                 response.xpath(f"{xpath_beginning}'Headshots'{xpath_ending}")
-                .getall()[0])
+                    .getall()[0])
         }
+
+

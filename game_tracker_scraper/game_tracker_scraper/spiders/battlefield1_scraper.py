@@ -1,15 +1,16 @@
 import scrapy
+from .battlefield_scraper import BattlefieldScraper
 
 DOMAIN = "https://battlefieldtracker.com"
 
 
-class Battlefield1Scraper(scrapy.Spider):
+class Battlefield1Scraper(BattlefieldScraper):
     name = "battlefield1"
 
     def start_requests(self):
-        urls = ["https://battlefieldtracker.com/bf1/leaderboards/all/SiteScore"]
+        urls = ["https://battlefieldtracker.com/bf1/leaderboards/all/Score"]
         urls += [
-            f"https://battlefieldtracker.com/bf1/leaderboards/all/SiteScore?page={page}"
+            f"https://battlefieldtracker.com/bf1/leaderboards/all/Score?page={page}"
             for page in range(2, 21)
         ]
         for url in urls:
@@ -23,13 +24,14 @@ class Battlefield1Scraper(scrapy.Spider):
                     'Rank': int(self.convert_numerical_str_to_num(
                         player_record.css('td::text').getall()[0].replace(",", ""))),
                     'Gamer': player_record.css('td')[1].css("a::text").get(),
-                    'BTR Score': self.convert_numerical_str_to_num(
+                    'Game Score': self.convert_numerical_str_to_num(
                         player_record.css('td')[2].css("div.pull-right::text").get()),
                     'Games': self.convert_numerical_str_to_num(player_record.css('td::text').getall()[-1])
                 }
                 player_profile_url = player_record.css("td")[1].css("a::attr(href)").get()
                 if player_profile_url is not None:
                     player_profile_url = DOMAIN + player_profile_url
+                    player_info["Platform"] = self.get_console_platform(player_profile_url.split("/")[-2])
                     yield scrapy.Request(player_profile_url, callback=self.parse_player_profile,
                                          meta={'player_info': player_info})
 
@@ -43,24 +45,27 @@ class Battlefield1Scraper(scrapy.Spider):
         yield {
             'Rank': player_info['Rank'],
             'Gamer': player_info['Gamer'],
-            'BTR Score': player_info['BTR Score'],
+            'Game Score': player_info['Game Score'],
             'Games': player_info['Games'],
-
+            'Platform': player_info['Platform'],
             # relevant_stats[0] is the content of an a tag
             'Score/min': self.convert_numerical_str_to_num(relevant_stats[1]),
             'Kill Ratio': self.convert_numerical_str_to_num(relevant_stats[2], False),
             'Win Percent': self.convert_numerical_str_to_num(relevant_stats[3], False) / 100,
-            'Game Score': self.convert_numerical_str_to_num(relevant_stats[4]),
+            'BTR Score': self.convert_numerical_str_to_num(self.get_specific_selection(response, "SiteScore").get()),
             'Hours Played': self.get_hours_from_play_time(relevant_stats[5]),
+            'Kills': self.convert_numerical_str_to_num(self.get_specific_selection(response, "Kills").get()),
+            'Deaths': self.convert_numerical_str_to_num(self.get_specific_selection(response, "Deaths").get()),
+            'Wins': self.convert_numerical_str_to_num(self.get_specific_selection(response, "Wins").get()),
+            'Losses': self.convert_numerical_str_to_num(self.get_specific_selection(response, "Losses").get()),
+            'Accuracy': self.convert_numerical_str_to_num(self.get_specific_selection(response, "AccuracyRatio").get(), False),
+            'Flags Captured': self.convert_numerical_str_to_num(self.get_specific_selection(response, "FlagsCaptured").get()),
+            'Flags Defended': self.convert_numerical_str_to_num(self.get_specific_selection(response, "FlagsDefended").get()),
+            'Head Shots': self.convert_numerical_str_to_num(self.get_specific_selection(response, "HeadShots").get()),
         }
 
-    def convert_numerical_str_to_num(self, numerical_str, round_int=True):
-        processed_str = numerical_str.replace("\r\n", "").replace(",", "").replace("%", "").strip()
-        if round_int:
-            return round(int(processed_str))
-        else:
-            return round(float(processed_str), 3)
-
+    def get_specific_selection(self, response, selection_name):
+        return response.xpath(f"//div[@data-stat='{selection_name}']/text()")
 
     def get_hours_from_play_time(self, play_time):
         play_time = play_time.split()

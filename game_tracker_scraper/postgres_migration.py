@@ -16,8 +16,9 @@ def main():
     engine = create_engine(f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DATABASE}')
     bf1_df = pd.read_json('battlefield1stats.json').sort_values("Rank")
     bf4_df = pd.read_json('battlefield4stats.json').sort_values("Rank")
-    dfs = [bf1_df, bf4_df]
-    table_names = ["Battlefield1Stats", "Battlefield4Stats"]
+    bf_hardline_df = pd.read_json('battlefield_hardline_stats.json').sort_values("Rank")
+    dfs = [bf1_df, bf4_df, bf_hardline_df]
+    table_names = ["Battlefield1Stats", "Battlefield4Stats", "BattlefieldHardlineStats"]
     for i in range(len(dfs)):
         dfs[i].to_sql(table_names[i], con=engine, if_exists="replace")
 

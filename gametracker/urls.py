@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bf1/', include('battlefield1.urls')),
     path('bf4/', include('battlefield4.urls')),
+    path('bfh/', include('battlefield_hardline.urls')),
     path('', include('home.urls'))
 ]
