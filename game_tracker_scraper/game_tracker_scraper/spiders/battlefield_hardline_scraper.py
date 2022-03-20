@@ -32,8 +32,7 @@ class BattlefieldHardlineScraper(BattlefieldScraper):
                 if player_profile_url is not None:
                     player_profile_url = DOMAIN + player_profile_url
                     player_info["Platform"] = player_profile_url.split("/")[-2]
-                    if "xbox" in player_info["Platform"]:
-                        player_info["Platform"] = "xbox"
+                    player_info["Platform"] = self.get_console_platform(player_info["Platform"])
                     yield scrapy.Request(player_profile_url, callback=self.parse_player_profile,
                                          meta={'player_info': player_info})
 
