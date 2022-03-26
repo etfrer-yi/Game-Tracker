@@ -2,4 +2,7 @@
 # Useful commands:
 - scrapy shell "[url]"
 - scrapy crawl [spider_name]
-- scrapy crawl [spider_name] -O [name].json
+
+- scrapy crawl battlefield1 -O battlefield1stats.json
+- scrapy crawl battlefield4 -O battlefield4stats.json
+- scrapy crawl battlefield_hardline -O battlefield_hardline_stats.json

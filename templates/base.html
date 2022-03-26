@@ -6,39 +6,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
+    <title>Battlefield Stats</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
 </head>
 <body>
-<div class="text-white bg-dark sidebar" style="width: 250px; display: inline-block; min-height: 100vh; height: 100%;">
-    <svg class="bi me-2" width="40" height="32"></svg>
-    <span class="fs-4">Battlefield Stats</span> </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item"><a href={% url "home" %} class="nav-link text-white
-            {% if request.resolver_match.url_name == "home" %}active{% endif %}">
-            <span class="ms-2">Home</span> </a></li>
-        <li><a href={% url "battlefield1" %} class="nav-link text-white
-            {% if request.resolver_match.url_name == "battlefield1" %}active{% endif %}">
-            <span class="ms-2">BF1 Stats</span></a></li>
-        <li><a href={% url "battlefield4" %} class="nav-link text-white
-            {% if request.resolver_match.url_name == "battlefield4" %}active{% endif %}">
-            <span class="ms-2">BF4 Stats</span> </a></li>
-        <li><a href={% url "battlefield_hardline" %} class="nav-link text-white
-            {% if request.resolver_match.url_name == "battlefield_hardline" %}active{% endif %}">
-            <span class="ms-2">BF Hardline Stats</span> </a></li>
-        <li><a href="#" class="nav-link text-white"> <span class="ms-2">Data Analytics</span> </a></li>
-    </ul>
-    <hr>
-</div>
-<div class="content" style="display: inline-block; vertical-align:top;">
-    {% block content %}{% endblock %}
-</div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href={% url "home" %} class="nav-link
+                {% if request.resolver_match.url_name == "home" %}active{% endif %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href={% url "battlefield1" %} class="nav-link
+                {% if request.resolver_match.url_name == "battlefield1" %}active{% endif %}">Battlefield 1</a>
+            </li>
+            <li class="nav-item">
+                <a href={% url "battlefield4" %} class="nav-link
+                {% if request.resolver_match.url_name == "battlefield4" %}active{% endif %}">Battlefield 4</a>
+            </li>
+            <li class="nav-item">
+                <a href={% url "battlefield_hardline" %} class="nav-link
+                {% if request.resolver_match.url_name == "battlefield_hardline" %}active{% endif %}">Battlefield Hardline</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% block content %}{% endblock %}
+<!--</div>-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
-<script type="text/javascript" src="{% static "js/index.js" %}"></script></body>
+<script type="text/javascript" src="{% static "js/index.js" %}"></script>
+</body>
 </html>

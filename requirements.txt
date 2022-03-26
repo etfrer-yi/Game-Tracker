@@ -4,4 +4,6 @@ Scrapy
 pandas
 psycopg2
 sqlalchemy
-selenium
+django-filter
+django-crispy-forms
+crispy_bootstrap5

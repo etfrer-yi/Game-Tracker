@@ -4,20 +4,23 @@
     background-color: #525252;
 }
 
-thead, tbody { display: block; }
 
 tbody {
-    height: 90vh;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
+    overflow-y: auto;
 }
 
 .record-row td {
     cursor: pointer;
 }
 
-table {
-    display: block;
-    margin: 10px 0;
-    width: 100%;
+input[type="submit"] {
+
+}
+
+#div_id_gamer__icontains, #div_id_platform__icontains, #div_id_rank__gte, #div_id_rank__lte,
+ #div_id_game_score__gte, #div_id_game_score__lte, #div_id_games__gte, #div_id_games__lte {
+    float: left;
+    width: 25%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
