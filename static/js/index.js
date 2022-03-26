@@ -18,12 +18,9 @@ function addRowHandlers() {
     let currentRow = table.rows[i];
     let createClickHandler = function(row) {
         return function() {
-            const playerName = row.children[1].innerHTML;
-            if (url.includes("page")) {
-                window.location.replace(url + "/" + playerName + "/");
-            } else {
-                window.location.replace(url + playerName + "/");
-            }
+            const rank = row.children[0].innerHTML;
+            const urlWithoutPagination = url.split("?")[0]; // splits on the query params "?"
+            window.location.replace(urlWithoutPagination + rank + "/");
         };
     }
     currentRow.onclick = createClickHandler(currentRow);

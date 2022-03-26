@@ -1,6 +1,7 @@
 from .models import Battlefield1Stats
 import django_filters
 from django_filters.views import FilterView
+from django.views.generic.detail import DetailView
 
 class Battlefield1StatsFilter(django_filters.FilterSet):
     def __init__(self, *args, **kwargs):
@@ -33,4 +34,11 @@ class Battlefield1View(FilterView):
     filterset_class = Battlefield1StatsFilter
     paginate_by = 20
 
+class Battlefield1DetailView(DetailView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['previous_url'] = self.request.META.get('HTTP_REFERER')
+        return context
 
+    model = Battlefield1Stats
+    template_name = "battlefield1/battlefield1_detailview.html"
