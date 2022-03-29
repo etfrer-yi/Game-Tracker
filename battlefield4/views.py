@@ -30,11 +30,18 @@ class Battlefield4View(FilterView):
     template_name = "battlefield4/battlefield4.html"
     context_object_name = "player_records"
     filterset_class = Battlefield4StatsFilter
-    paginate_by = 20
+    paginate_by = 100
 
 class Battlefield4DetailView(DetailView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['previous_url'] = self.request.META.get('HTTP_REFERER')
+        return context
+
     model = Battlefield4Stats
+    context_object_name = "player_record"
     template_name = "battlefield4/battlefield4_detailview.html"
+
 
 
 

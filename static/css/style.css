@@ -4,9 +4,15 @@
     background-color: #525252;
 }
 
+thead, tbody { display: inline-block; width: 100%;}
+
+tr td {
+    width: 25%;
+}
 
 tbody {
-    overflow-y: auto;
+    height: 60vh;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
 }
 
 .record-row td {
@@ -14,7 +20,8 @@ tbody {
 }
 
 input[type="submit"] {
-
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
 
 #div_id_gamer__icontains, #div_id_platform__icontains, #div_id_rank__gte, #div_id_rank__lte,
@@ -23,4 +30,19 @@ input[type="submit"] {
     width: 25%;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-content: stretch;
+  width: 100vw;
+  height: 100vh;
+  grid-template-areas:
+    ". . . . . ."
+    ". . . . . ."
+    ". . . . . .";
 }

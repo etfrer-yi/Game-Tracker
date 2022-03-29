@@ -10,8 +10,8 @@ from django.db import models
 
 class Battlefield1Stats(models.Model):
     index = models.BigIntegerField(blank=True, null=True)
-    rank = models.BigIntegerField(db_column='Rank', blank=True, null=True)  # Field name made lowercase.
-    gamer = models.TextField(db_column='Gamer', primary_key=True)  # Field name made lowercase.
+    rank = models.BigIntegerField(db_column='Rank', primary_key=True)  # Field name made lowercase.
+    gamer = models.TextField(db_column='Gamer', blank=True, null=True)  # Field name made lowercase.
     game_score = models.BigIntegerField(db_column='Game Score', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     games = models.BigIntegerField(db_column='Games', blank=True, null=True)  # Field name made lowercase.
     platform = models.TextField(db_column='Platform', blank=True, null=True)  # Field name made lowercase.
