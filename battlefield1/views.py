@@ -32,7 +32,7 @@ class Battlefield1View(FilterView):
     template_name = "battlefield1/battlefield1.html"
     context_object_name = "player_records"
     filterset_class = Battlefield1StatsFilter
-    paginate_by = 20
+    paginate_by = 100
 
 class Battlefield1DetailView(DetailView):
     def get_context_data(self, **kwargs):
@@ -41,4 +41,5 @@ class Battlefield1DetailView(DetailView):
         return context
 
     model = Battlefield1Stats
+    context_object_name = "player_record"
     template_name = "battlefield1/battlefield1_detailview.html"

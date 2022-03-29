@@ -30,7 +30,7 @@ class BattlefieldHardlineView(FilterView):
     template_name = "battlefield_hardline/battlefield_hardline.html"
     context_object_name = "player_records"
     filterset_class = BattlefieldHardlineStatsFilter
-    paginate_by = 20
+    paginate_by = 100
 
 
 class BattlefieldHardlineDetailView(DetailView):
@@ -40,4 +40,5 @@ class BattlefieldHardlineDetailView(DetailView):
         return context
 
     model = Battlefieldhardlinestats
+    context_object_name = "player_record"
     template_name = "battlefield_hardline/battlefield_hardline_detailview.html"
