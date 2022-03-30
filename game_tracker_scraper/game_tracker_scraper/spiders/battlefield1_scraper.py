@@ -31,7 +31,8 @@ class Battlefield1Scraper(BattlefieldScraper):
                 player_profile_url = player_record.css("td")[1].css("a::attr(href)").get()
                 if player_profile_url is not None:
                     player_profile_url = DOMAIN + player_profile_url
-                    player_info["Platform"] = self.get_console_platform(player_profile_url.split("/")[-2])
+                    player_info["Original Platform"] = player_profile_url.split("/")[-2]
+                    player_info["Platform"] = self.get_console_platform(player_info["Original Platform"])
                     yield scrapy.Request(player_profile_url, callback=self.parse_player_profile,
                                          meta={'player_info': player_info})
 
@@ -48,6 +49,7 @@ class Battlefield1Scraper(BattlefieldScraper):
             'Game Score': player_info['Game Score'],
             'Games': player_info['Games'],
             'Platform': player_info['Platform'],
+            'Original Platform': player_info['Original Platform'],
             # relevant_stats[0] is the content of an a tag
             'Score/min': self.convert_numerical_str_to_num(relevant_stats[1]),
             'Kill Ratio': self.convert_numerical_str_to_num(relevant_stats[2], False),

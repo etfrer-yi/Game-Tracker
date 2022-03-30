@@ -37,6 +37,9 @@ class BattlefieldHardlineDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['previous_url'] = self.request.META.get('HTTP_REFERER')
+        original_player_record_url_root = "https://battlefieldtracker.com/bfh/stats/"
+        record = self.object
+        context['original_player_record_url'] = original_player_record_url_root + record.original_platform + "/" + record.gamer
         return context
 
     model = Battlefieldhardlinestats

@@ -15,6 +15,7 @@ class Battlefieldhardlinestats(models.Model):
     game_score = models.BigIntegerField(db_column='Game Score', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     games = models.BigIntegerField(db_column='Games', blank=True, null=True)  # Field name made lowercase.
     platform = models.TextField(db_column='Platform', blank=True, null=True)  # Field name made lowercase.
+    original_platform = models.TextField(db_column='Original Platform', blank=True, null=True)  # Field name made lowercase.
     score_min = models.BigIntegerField(db_column='Score/min', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     kill_ratio = models.FloatField(db_column='Kill Ratio', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     win_percent = models.FloatField(db_column='Win Percent', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -32,3 +33,6 @@ class Battlefieldhardlinestats(models.Model):
     class Meta:
         managed = False
         db_table = 'BattlefieldHardlineStats'
+
+    def get_fields(self):
+        return [(field.get_attname_column()[1], getattr(self, field.name)) for field in Battlefieldhardlinestats._meta.fields]

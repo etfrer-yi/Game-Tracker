@@ -46,3 +46,28 @@ input[type="submit"] {
     ". . . . . ."
     ". . . . . .";
 }
+
+.stat {
+    text-align: center;
+}
+
+.stat h1 {
+    margin-top: 30px;
+}
+
+/*
+.stat:nth-child(1), .stat:nth-child(3), .stat:nth-child(5), .stat:nth-child(8),
+.stat:nth-child(10), .stat:nth-child(12), .stat:nth-child(13), .stat:nth-child(15), .stat:nth-child(17) {
+    background: radial-gradient(#767683, #000000);
+}
+
+.stat:nth-child(2), .stat:nth-child(4), .stat:nth-child(6), .stat:nth-child(7),
+.stat:nth-child(9), .stat:nth-child(11), .stat:nth-child(14), .stat:nth-child(16), .stat:nth-child(18) {
+    background: radial-gradient(#326F6E, #000000);
+}
+*/
+
+
+.go-back {
+    margin: 20px;
+}
