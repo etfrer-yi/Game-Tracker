@@ -20,6 +20,7 @@ def main():
     dfs = [bf1_df, bf4_df, bf_hardline_df]
     table_names = ["Battlefield1Stats", "Battlefield4Stats", "BattlefieldHardlineStats"]
     for i in range(len(dfs)):
+        dfs[i] = dfs[i].round(2)
         dfs[i].to_sql(table_names[i], con=engine, if_exists="replace")
 
 if __name__ == "__main__":
