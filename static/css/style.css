@@ -39,7 +39,6 @@ input[type="submit"] {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   align-content: stretch;
-  width: 100vw;
   height: 100vh;
   grid-template-areas:
     ". . . . . ."
@@ -55,19 +54,13 @@ input[type="submit"] {
     margin-top: 30px;
 }
 
-/*
-.stat:nth-child(1), .stat:nth-child(3), .stat:nth-child(5), .stat:nth-child(8),
-.stat:nth-child(10), .stat:nth-child(12), .stat:nth-child(13), .stat:nth-child(15), .stat:nth-child(17) {
-    background: radial-gradient(#767683, #000000);
+
+.player-record-btn {
+    margin: 20px 0 20px 20px;
 }
 
-.stat:nth-child(2), .stat:nth-child(4), .stat:nth-child(6), .stat:nth-child(7),
-.stat:nth-child(9), .stat:nth-child(11), .stat:nth-child(14), .stat:nth-child(16), .stat:nth-child(18) {
-    background: radial-gradient(#326F6E, #000000);
-}
-*/
-
-
-.go-back {
-    margin: 20px;
+.pagination {
+    text-align: center;
+    display: inline;
+    margin: 100px;
 }

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'battlefield1',
     'battlefield4',
     'battlefield_hardline',
+    'data_analytics',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

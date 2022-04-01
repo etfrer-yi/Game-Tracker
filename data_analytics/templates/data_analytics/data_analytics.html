@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<form id="form" action={% url "get_graph" %} method="get">
+    <fieldset>
+        <span>Select Battlefield games:</span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="bf_games" id="bf1" value="bf1" checked>
+            <label class="form-check-label" for="bf1">BF1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="bf_games" id="bf4" value="bf4" checked>
+            <label class="form-check-label" for="bf4">BF4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="bf_games" id="bf-hardline" value="bf_hardline" checked>
+            <label class="form-check-label" for="bf-hardline">BF Hardline</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <span>Select which platforms: </span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="platforms" type="checkbox" id="pc" value="pc" checked>
+            <label class="form-check-label" for="pc">PC</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="platforms" type="checkbox" id="xbox" value="xbox" checked>
+            <label class="form-check-label" for="xbox">Xbox</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="platforms" type="checkbox" id="psn" value="psn" checked>
+            <label class="form-check-label" for="psn">PSN</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <span>Select graph type: </span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_type" id="scatter-overall" value="scatter-overall" checked>
+            <label class="form-check-label" for="scatter-overall">Scatter (overall)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_type" id="scatter-bf-game" value="scatter-bf-game">
+            <label class="form-check-label" for="scatter-bf-game">Scatter (by Battlefield game)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_type" id="scatter-platform" value="scatter-platform">
+            <label class="form-check-label" for="scatter-platform">Scatter (by platform)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_type" id="scatter-bf-game-and-platform" value="scatter-bf-game-and-platform">
+            <label class="form-check-label" for="scatter-bf-game-and-platform">Scatter (by Battlefield game & platform)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_type" id="line" value="line">
+            <label class="form-check-label" for="line">Line</label>
+        </div>
+    </fieldset>
+    <label for="x-axis">Plot (on the x-axis)</label>
+    <select name="x-axis" id="x-axis">
+        {% for django_field, db_field in numeric_fields %}
+            <option value="{{ django_field }}">{{ db_field }}</option>
+        {% endfor %}
+    </select>
+    <label for="y-axis">against (on the y-axis)</label>
+    <select name="y-axis" id="y-axis">
+        {% for django_field, db_field in numeric_fields %}
+            <option value="{{ django_field }}">{{ db_field }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input class="btn btn-primary" type="submit"/>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="{% static " js/index.js" %}"></script>
+
+{% endblock %}

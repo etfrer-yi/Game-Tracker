@@ -28,6 +28,11 @@ class Battlefield1StatsFilter(django_filters.FilterSet):
 
 # Create your views here.
 class Battlefield1View(FilterView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['previous_url'] = self.request.META.get('HTTP_REFERER')
+        return context
+
     model = Battlefield1Stats
     template_name = "battlefield1/battlefield1.html"
     context_object_name = "player_records"
@@ -41,6 +46,7 @@ class Battlefield1DetailView(DetailView):
         original_player_record_url_root = "https://battlefieldtracker.com/bf1/profile/"
         record = self.object
         context['original_player_record_url'] = original_player_record_url_root + record.original_platform +"/" + record.gamer
+        context['original_player_list_url'] = "https://battlefieldtracker.com/bf1/leaderboards/all/Score"
         return context
 
     model = Battlefield1Stats

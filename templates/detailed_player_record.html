@@ -1,4 +1,6 @@
-<a class="btn btn-primary go-back" href={{previous_url}} role="button">Go back</a>
+<a class="btn btn-primary player-record-btn" href={{previous_url}} role="button">Go back</a>
+<a class="btn btn-primary player-record-btn" href={{original_player_record_url}} role="button">See original player record</a>
+<a class="btn btn-primary player-record-btn" href={{original_player_list_url}} role="button">See original leaderboards</a>
 <div class="grid">
     {% for name, value in player_record.get_fields %}
         {% if name != "index" and name != "Original Platform" %}

@@ -26,6 +26,11 @@ class BattlefieldHardlineStatsFilter(django_filters.FilterSet):
         }
 
 class BattlefieldHardlineView(FilterView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['previous_url'] = self.request.META.get('HTTP_REFERER')
+        return context
+
     model = Battlefieldhardlinestats
     template_name = "battlefield_hardline/battlefield_hardline.html"
     context_object_name = "player_records"
@@ -40,6 +45,7 @@ class BattlefieldHardlineDetailView(DetailView):
         original_player_record_url_root = "https://battlefieldtracker.com/bfh/stats/"
         record = self.object
         context['original_player_record_url'] = original_player_record_url_root + record.original_platform + "/" + record.gamer
+        context['original_player_list_url'] = "https://battlefieldtracker.com/bfh/leaderboards/all"
         return context
 
     model = Battlefieldhardlinestats
