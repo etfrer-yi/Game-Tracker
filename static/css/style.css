@@ -24,6 +24,11 @@ input[type="submit"] {
     margin-left: 10px;
 }
 
+#data-analytics-submit {
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
 #div_id_gamer__icontains, #div_id_platform__icontains, #div_id_rank__gte, #div_id_rank__lte,
  #div_id_game_score__gte, #div_id_game_score__lte, #div_id_games__gte, #div_id_games__lte {
     float: left;
@@ -63,4 +68,17 @@ input[type="submit"] {
     text-align: center;
     display: inline;
     margin: 100px;
+}
+
+#form input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#form {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px ridge #0D2142;
+    background-color: #ebedf2;
 }

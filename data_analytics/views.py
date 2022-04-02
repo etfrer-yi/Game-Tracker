@@ -50,14 +50,12 @@ def get_graph(request):
         elif "platform" in graph_filter_on:
             symbol = "Platform"
             category_orders["Game Title"] = ["Battlefield 1", "Battlefield Hardline", "Battlefield 4"]
-    # symbol_sequence = None if graph_filter_on == "overall" else ["circle-open", "circle-dot", "circle-open-dot"]
     graph_features = {
         "data_frame": df,
         "x": x_col,
         "y": y_col,
         "color": symbol,
         "symbol": symbol,
-        # "symbol_sequence": symbol_sequence,
         "category_orders": category_orders
     }
     if graph_type == "scatter":

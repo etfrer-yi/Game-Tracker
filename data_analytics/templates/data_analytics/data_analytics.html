@@ -3,8 +3,8 @@
 
 {% block content %}
 <form id="form" action={% url "get_graph" %} method="get">
-    <fieldset>
-        <span>Select Battlefield games:</span>
+    <fieldset class="checkbox">
+        <span>Select which Battlefield games:</span>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" name="bf_games" id="bf1" value="bf1" checked>
             <label class="form-check-label" for="bf1">BF1</label>
@@ -18,7 +18,7 @@
             <label class="form-check-label" for="bf-hardline">BF Hardline</label>
         </div>
     </fieldset>
-    <fieldset>
+    <fieldset class="checkbox">
         <span>Select which platforms: </span>
         <div class="form-check form-check-inline">
             <input class="form-check-input" name="platforms" type="checkbox" id="pc" value="pc" checked>
@@ -58,10 +58,6 @@
             <input class="form-check-input" type="radio" name="graph_filter_on" id="platform" value="platform">
             <label class="form-check-label" for="platform">By platform</label>
         </div>
-<!--        <div class="form-check form-check-inline">-->
-<!--            <input class="form-check-input" type="radio" name="graph_filter_on" id="game_title-and-platform" value="game_title-and-platform">-->
-<!--            <label class="form-check-label" for="game_title-and-platform">By Battlefield game title and platform</label>-->
-<!--        </div>-->
     </fieldset>
     <label for="x-axis">Plot (on the x-axis)</label>
     <select name="x-axis" id="x-axis">
@@ -76,7 +72,7 @@
         {% endfor %}
     </select>
     <br>
-    <input class="btn btn-primary" type="submit"/>
+    <input class="btn btn-primary" id="data-analytics-submit" type="submit"/>
 </form>
 <!-- Just an empty div placeholder to be replaced by a graph-->
 <div></div>
