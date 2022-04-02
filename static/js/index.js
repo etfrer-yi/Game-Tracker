@@ -1,13 +1,6 @@
 const url = window.location.href;
 
 $(document).ready(function () {
-    let height1 = $('.content').height();
-    let height2 = $('body').height();
-    if (height1 > height2) {
-        $('.sidebar').height(height1);
-    } else {
-        $('.sidebar').height(height2);
-    }
     addRowHandlers();
 });
 

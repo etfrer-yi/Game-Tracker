@@ -7,3 +7,5 @@ sqlalchemy
 django-filter
 django-crispy-forms
 crispy_bootstrap5
+plotly
+statsmodels
