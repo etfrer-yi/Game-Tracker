@@ -1,5 +1,4 @@
 .venv
-*.env
 staticfiles
 
 # The following is copy-pasted from https://www.toptal.com/developers/gitignore/api/python
