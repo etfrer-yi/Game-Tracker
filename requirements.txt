@@ -11,3 +11,4 @@ plotly
 statsmodels
 gunicorn
 whitenoise
+dj-database-url
