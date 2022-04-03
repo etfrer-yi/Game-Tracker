@@ -31,7 +31,7 @@ DEBUG = os.getenv("DEBUG") == "True"
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['yihengwang-game-tracker.herokuapp.com/', '127.0.0.1', '.localhost']
+ALLOWED_HOSTS = ['yihengwang-game-tracker.herokuapp.com', '127.0.0.1', '.localhost']
 
 
 # Application definition
