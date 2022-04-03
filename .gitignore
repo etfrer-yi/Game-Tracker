@@ -1,5 +1,6 @@
 .venv
 *.env
+staticfiles
 
 # The following is copy-pasted from https://www.toptal.com/developers/gitignore/api/python
 # Created by https://www.toptal.com/developers/gitignore/api/python
