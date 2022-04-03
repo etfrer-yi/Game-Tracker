@@ -19,8 +19,10 @@ def main():
     bf_hardline_df = pd.read_json('battlefield_hardline_stats.json').sort_values("Rank")
     dfs = [bf1_df, bf4_df, bf_hardline_df]
     table_names = ["Battlefield1Stats", "Battlefield4Stats", "BattlefieldHardlineStats"]
+    game_titles = ["Battlefield 1", "Battlefield 4", "Battlefield Hardline"]
     for i in range(len(dfs)):
         dfs[i] = dfs[i].round(2)
+        dfs[i]["Game Title"] = game_titles[i]
         dfs[i].to_sql(table_names[i], con=engine, if_exists="replace")
 
 if __name__ == "__main__":

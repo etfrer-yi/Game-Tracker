@@ -27,7 +27,8 @@ class Battlefield1Stats(models.Model):
     accuracy = models.FloatField(db_column='Accuracy', blank=True, null=True)  # Field name made lowercase.
     flags_captured = models.BigIntegerField(db_column='Flags Captured', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     flags_defended = models.BigIntegerField(db_column='Flags Defended', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    head_shots = models.BigIntegerField(db_column='Head Shots', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    head_shots = models.BigIntegerField(db_column='Head Shots', blank=True, null=True),  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    game_title = models.TextField(db_column='Game Title', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -57,7 +58,8 @@ class Battlefield4Stats(models.Model):
     accuracy = models.BigIntegerField(db_column='Accuracy', blank=True, null=True)  # Field name made lowercase.
     flags_captured = models.BigIntegerField(db_column='Flags Captured', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     flags_defended = models.BigIntegerField(db_column='Flags Defended', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    head_shots = models.BigIntegerField(db_column='Head Shots', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    head_shots = models.BigIntegerField(db_column='Head Shots', blank=True, null=True),  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    game_title = models.TextField(db_column='Game Title', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -87,7 +89,8 @@ class Battlefieldhardlinestats(models.Model):
     accuracy = models.BigIntegerField(db_column='Accuracy', blank=True, null=True)  # Field name made lowercase.
     flags_captured = models.BigIntegerField(db_column='Flags Captured', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     flags_defended = models.BigIntegerField(db_column='Flags Defended', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    head_shots = models.BigIntegerField(db_column='Head Shots', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    head_shots = models.BigIntegerField(db_column='Head Shots', blank=True, null=True),  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    game_title = models.TextField(db_column='Game Title', blank=True, null=True)
 
     class Meta:
         managed = False

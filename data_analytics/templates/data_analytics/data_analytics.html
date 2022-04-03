@@ -3,8 +3,8 @@
 
 {% block content %}
 <form id="form" action={% url "get_graph" %} method="get">
-    <fieldset>
-        <span>Select Battlefield games:</span>
+    <fieldset class="checkbox">
+        <span>Select which Battlefield games:</span>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" name="bf_games" id="bf1" value="bf1" checked>
             <label class="form-check-label" for="bf1">BF1</label>
@@ -18,7 +18,7 @@
             <label class="form-check-label" for="bf-hardline">BF Hardline</label>
         </div>
     </fieldset>
-    <fieldset>
+    <fieldset class="checkbox">
         <span>Select which platforms: </span>
         <div class="form-check form-check-inline">
             <input class="form-check-input" name="platforms" type="checkbox" id="pc" value="pc" checked>
@@ -36,24 +36,27 @@
     <fieldset>
         <span>Select graph type: </span>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="graph_type" id="scatter-overall" value="scatter-overall" checked>
-            <label class="form-check-label" for="scatter-overall">Scatter (overall)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="graph_type" id="scatter-bf-game" value="scatter-bf-game">
-            <label class="form-check-label" for="scatter-bf-game">Scatter (by Battlefield game)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="graph_type" id="scatter-platform" value="scatter-platform">
-            <label class="form-check-label" for="scatter-platform">Scatter (by platform)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="graph_type" id="scatter-bf-game-and-platform" value="scatter-bf-game-and-platform">
-            <label class="form-check-label" for="scatter-bf-game-and-platform">Scatter (by Battlefield game & platform)</label>
+            <input class="form-check-input" type="radio" name="graph_type" id="scatter" value="scatter" checked>
+            <label class="form-check-label" for="scatter">Scatter</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="graph_type" id="line" value="line">
             <label class="form-check-label" for="line">Line</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <span>Select filter type: </span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_filter_on" id="overall" value="overall" checked>
+            <label class="form-check-label" for="overall">Overall</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_filter_on" id="game-title" value="game-title">
+            <label class="form-check-label" for="game-title">By Battlefield game title</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="graph_filter_on" id="platform" value="platform">
+            <label class="form-check-label" for="platform">By platform</label>
         </div>
     </fieldset>
     <label for="x-axis">Plot (on the x-axis)</label>
@@ -69,11 +72,13 @@
         {% endfor %}
     </select>
     <br>
-    <input class="btn btn-primary" type="submit"/>
+    <input class="btn btn-primary" id="data-analytics-submit" type="submit"/>
 </form>
+<!-- Just an empty div placeholder to be replaced by a graph-->
+<div></div>
+<script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
-<script type="text/javascript" src="{% static " js/index.js" %}"></script>
-
+<script type="text/javascript" src="{% static "js/data_analytics.js" %}"></script>
 {% endblock %}
