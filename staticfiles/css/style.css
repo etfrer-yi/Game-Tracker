@@ -1,0 +1,88 @@
+
+
+.nav-link:hover {
+    background-color: #525252;
+}
+
+thead, tbody { display: inline-block; width: 100%;}
+
+tr td {
+    width: 25%;
+}
+
+tbody {
+    height: 60vh;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+}
+
+.record-row td {
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+#data-analytics-submit {
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+#div_id_gamer__icontains, #div_id_platform__icontains, #div_id_rank__gte, #div_id_rank__lte,
+ #div_id_game_score__gte, #div_id_game_score__lte, #div_id_games__gte, #div_id_games__lte {
+    float: left;
+    width: 25%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-content: stretch;
+  height: 100vh;
+  grid-template-areas:
+    ". . . . . ."
+    ". . . . . ."
+    ". . . . . .";
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h1 {
+    margin-top: 30px;
+}
+
+
+.player-record-btn {
+    margin: 20px 0 20px 20px;
+}
+
+.pagination {
+    text-align: center;
+    display: inline;
+    margin: 100px;
+}
+
+#form input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#form {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px ridge #0D2142;
+    background-color: #ebedf2;
+}
+
+#home {
+    padding: 20px;
+}
