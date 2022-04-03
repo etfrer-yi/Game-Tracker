@@ -82,3 +82,7 @@ input[type="submit"] {
     border: 2px ridge #0D2142;
     background-color: #ebedf2;
 }
+
+#home {
+    padding: 20px;
+}

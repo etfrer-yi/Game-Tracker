@@ -1,5 +1,6 @@
 
 # Useful commands:
+- source ./venv/Scripts/activate
 - scrapy shell "[url]"
 - scrapy crawl [spider_name]
 

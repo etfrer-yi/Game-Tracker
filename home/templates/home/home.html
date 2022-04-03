@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+{% block content %}
+<div id="home">
+    <h1>Welcome to the Battlefield Stats page!</h1>
+    <p>This website consists of player records scraped from Battlefield Tracker websites for Battlefield 1, Battlefield 4, and Battlefield Hardline.
+    The data were scraped from Battlefield Tracker leaderboards, sorted by Game Score, at the following websites respectively:
+        <a href="https://battlefieldtracker.com/bf1/leaderboards/all/Score">https://battlefieldtracker.com/bf1/leaderboards/all/Score</a>,
+        <a href="https://battlefieldtracker.com/bf4/leaderboards/all">https://battlefieldtracker.com/bf4/leaderboards/all</a>, and
+        <a href="https://battlefieldtracker.com/bfh/leaderboards/all">https://battlefieldtracker.com/bfh/leaderboards/all</a>. You can find the collection of records in their respective tabs.</p>
+    <p>Player records on each tab are filterable by the filters at the top of each game tab. You can also <strong>click</strong> on each player record to see the detailed record for that particular player.</p>
+    <p>The "Data Analytics" tab allows you to generate various plots of the relationship between any two numeric variables that were scraped, with a variety of filters on how the graph should be generated.</p>
+    <p>Enjoy!</p>
+</div>
+{% endblock %}

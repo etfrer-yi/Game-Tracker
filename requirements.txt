@@ -9,3 +9,5 @@ django-crispy-forms
 crispy_bootstrap5
 plotly
 statsmodels
+gunicorn
+whitenoise
