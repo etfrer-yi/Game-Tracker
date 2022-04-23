@@ -34,6 +34,7 @@ class Battlefield4Stats(models.Model):
     class Meta:
         managed = False
         db_table = 'Battlefield4Stats'
+        ordering = ['rank']
 
     def get_fields(self):
         return [(field.get_attname_column()[1], getattr(self, field.name)) for field in Battlefield4Stats._meta.fields]
