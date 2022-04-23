@@ -1,6 +1,3 @@
-PGUSER=postgres PGPASSWORD=cf0da12c-a2f1-11ec-b909-0242ac120002  heroku pg:push postgres://localhost/GameTracker DATABASE
-PGUSER=postgres PGPASSWORD=cf0da12c-a2f1-11ec-b909-0242ac120002 heroku pg:push GameTracker DATABASE -a yihengwang-game-tracker
-pg_dump --table=Battlefield1Stats --data-only --column-inserts GameTracker > Battlefield1Stats.sql
 
 .venv
 staticfiles
