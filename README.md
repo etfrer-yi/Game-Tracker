@@ -10,6 +10,10 @@ To have a local version of the project running,
 4. Navigate to the `game_tracker_scraper` directory and run `postgres_migration.py`. This will populate the database based on the scraped data contained in the `.json` files.
 5. Run `python manage.py runserver` to ensure that the project can be run. 
 
+# Demo:
+https://github.com/etfrer-yi/Game-Tracker/assets/77317763/462dd453-0464-408b-a540-d6d709ccd45a
+
+
 # Data scraping
 To re-scrape the data from Battlefield Leaderboards with the latest changes, navigate to the `game_tracker_scraper` directory and run the following commands to repopulate the `.json` files.
 ```
@@ -21,3 +25,9 @@ scrapy crawl battlefield_hardline -O battlefield_hardline_stats.json
 # Resources used for hosting
 - https://www.youtube.com/watch?v=TFFtDLZnbSs&t=612s
 - https://devcenter.heroku.com/articles/getting-started-with-python#provision-a-database
+
+# Running project locally
+```
+source venv/Scripts/activate
+python manage.py runserver
+```
