@@ -10,7 +10,7 @@ To have a local version of the project running,
 4. Navigate to the `game_tracker_scraper` directory and run `postgres_migration.py`. This will populate the database based on the scraped data contained in the `.json` files.
 5. Run `python manage.py runserver` to ensure that the project can be run. 
 
-# Demo:
+# Demo
 https://github.com/etfrer-yi/Game-Tracker/assets/77317763/462dd453-0464-408b-a540-d6d709ccd45a
 
 
