@@ -1,3 +1,9 @@
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/etfrer-yi/Game-Tracker?color=blue)
+![GitHub repo file count (file type)](https://img.shields.io/github/directory-file-count/etfrer-yi/Game-Tracker?color=red)
+![GitHub language count](https://img.shields.io/github/languages/count/etfrer-yi/Game-Tracker?color=purple)
+![GitHub top language](https://img.shields.io/github/languages/top/etfrer-yi/Game-Tracker?color=orange)
+
+
 
 # Introduction
 This is a Django project meant to display player records and data analytics results from 3 Battlefield games: Battlefield 1, Battlefield 4, and Battlefield Hardline. The data were scraped in the `game_tracker_scraper` folder using Python's Scrapy. Its source is Battlefield Leaderboards that are sorted by Game Score: https://battlefieldtracker.com/bf4/leaderboards/all, https://battlefieldtracker.com/bf1/leaderboards/all/Score, and https://battlefieldtracker.com/bfh/leaderboards/all. The final website is hosted at **https://yihengwang-game-tracker.herokuapp.com/**   
