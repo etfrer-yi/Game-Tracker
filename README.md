@@ -1,5 +1,11 @@
 <div align="center">
 
+# Game-Tracker
+
+</div>
+
+<div align="center">
+
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/etfrer-yi/Game-Tracker?color=blue)
 ![GitHub repo file count (file type)](https://img.shields.io/github/directory-file-count/etfrer-yi/Game-Tracker?color=red)
 ![GitHub language count](https://img.shields.io/github/languages/count/etfrer-yi/Game-Tracker?color=purple)
