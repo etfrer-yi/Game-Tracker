@@ -13,6 +13,16 @@
 
 </div>
 
+<div align="center">
+
+![Django Badge](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=fff&style=for-the-badge)
+![JavaScript Badge](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=for-the-badge)
+![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=for-the-badge)
+![pandas Badge](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=fff&style=for-the-badge)
+![Plotly Badge](https://img.shields.io/badge/Plotly-3F4F75?logo=plotly&logoColor=fff&style=for-the-badge)
+
+</div>
+
 # Introduction
 This is a Django project meant to display player records and data analytics results from 3 Battlefield games: Battlefield 1, Battlefield 4, and Battlefield Hardline. The data were scraped in the `game_tracker_scraper` folder using Python's Scrapy. Its source is Battlefield Leaderboards that are sorted by Game Score: https://battlefieldtracker.com/bf4/leaderboards/all, https://battlefieldtracker.com/bf1/leaderboards/all/Score, and https://battlefieldtracker.com/bfh/leaderboards/all. The final website is hosted at **https://yihengwang-game-tracker.herokuapp.com/**   
 
